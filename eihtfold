@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eihtfold Construction</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+<header>
+    <div class="logo">Eihtfold</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html" class="quote-btn">Request a Quote</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Building the Future, Restoring the Past</h1>
+    <p>Premium Residential & Commercial Construction Services</p>
+    <a href="contact.html" class="cta-btn">Get a Free Estimate</a>
+</section>
+
+<section class="services-preview">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="service-item">
+            <h3>New Residential</h3>
+            <p>Luxury homes built with precision and quality.</p>
+        </div>
+        <div class="service-item">
+            <h3>ADUs & Extensions</h3>
+            <p>Expand your space with modern and efficient designs.</p>
+        </div>
+        <div class="service-item">
+            <h3>Remodeling</h3>
+            <p>Transform your home with high-end remodeling solutions.</p>
+        </div>
+        <div class="service-item">
+            <h3>Commercial</h3>
+            <p>Innovative solutions for businesses and large-scale projects.</p>
+        </div>
+    </div>
+    <a href="services.html" class="cta-btn">View All Services</a>
+</section>
+
+<section class="portfolio">
+    <h2>Our Work</h2>
+    <div class="projects">
+        <div class="project-item">
+            <img src="https://source.unsplash.com/800x600/?modern-house" alt="Luxury Residence">
+            <h3>Luxury Residence</h3>
+        </div>
+        <div class="project-item">
+            <img src="https://source.unsplash.com/800x600/?skyscraper" alt="Commercial Skyscraper">
+            <h3>Commercial Skyscraper</h3>
+        </div>
+        <div class="project-item">
+            <img src="https://source.unsplash.com/800x600/?interior-design" alt="Interior Remodeling">
+            <h3>Interior Remodeling</h3>
+        </div>
+    </div>
+    <a href="portfolio.html" class="cta-btn">See More Projects</a>
+</section>
+
+<footer>
+    <p>© 2025 Eihtfold Construction. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const items = document.querySelectorAll(".project-item, .service-item");
+    items.forEach(item => {
+        item.style.opacity = 0;
+        item.style.transform = "translateY(20px)";
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, { threshold: 0.1 });
+
+    items.forEach(item => observer.observe(item));
+});
+</script>
+
+</body>
+</html>
